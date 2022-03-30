@@ -136,7 +136,7 @@ void BSDF::reflect(const Vector3D wo, Vector3D* wi) {
 
   // TODO Project 3-2: Part 1
   // Implement reflection of wo about normal (0,0,1) and store result in wi.
-
+    
 
 }
 
