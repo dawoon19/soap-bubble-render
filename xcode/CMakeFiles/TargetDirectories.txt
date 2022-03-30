@@ -1,0 +1,16 @@
+/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CMakeFiles/pathtracer.dir
+/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CMakeFiles/install.dir
+/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CMakeFiles/ALL_BUILD.dir
+/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CMakeFiles/ZERO_CHECK.dir
+/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CGL/CMakeFiles/CGL.dir
+/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CGL/CMakeFiles/install.dir
+/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CGL/CMakeFiles/ALL_BUILD.dir
+/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CGL/CMakeFiles/ZERO_CHECK.dir
+/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CGL/deps/glew/CMakeFiles/glew.dir
+/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CGL/deps/glew/CMakeFiles/install.dir
+/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CGL/deps/glfw/CMakeFiles/uninstall.dir
+/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CGL/deps/glfw/CMakeFiles/install.dir
+/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CGL/deps/glfw/CMakeFiles/ALL_BUILD.dir
+/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CGL/deps/glfw/CMakeFiles/ZERO_CHECK.dir
+/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CGL/deps/glfw/src/CMakeFiles/glfw.dir
+/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CGL/deps/glfw/src/CMakeFiles/install.dir
