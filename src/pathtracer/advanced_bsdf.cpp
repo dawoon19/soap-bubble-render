@@ -95,19 +95,18 @@ Vector3D RefractionBSDF::sample_f(const Vector3D wo, Vector3D* wi, double* pdf) 
   // TODO Project 3-2: Part 1
   // Implement RefractionBSDF
     *pdf = 1;
-    double n = 1 / ior;
-    int dir = -1;
+    double n = 1.0 / this->ior;
     //exiting
     if (wo.z < 0) {
-        n = ior;
-        dir = 1;
+        n = this->ior;
     }
-    if (refract(wo, wi, ior)) {
-        return transmittance / abs_cos_theta(*wi) / (n * n);
-    }
-    else {
+    if (!refract(wo, wi, this->ior)) {
+        //*pdf = 1;
+        //return transmittance / abs_cos_theta(*wi) / (n * n);
         return Vector3D();
     }
+      //return Vector3D();
+      return transmittance / abs_cos_theta(*wi) / (n * n);
 }
 
 void RefractionBSDF::render_debugger_node()
@@ -164,7 +163,7 @@ bool BSDF::refract(const Vector3D wo, Vector3D* wi, double ior) {
   // ray entering the surface through vacuum.
 
   //entering 
-  double n = 1 / ior;
+  double n = 1.0 / ior;
   int dir = -1;
   //exiting
   if (wo.z < 0) {
