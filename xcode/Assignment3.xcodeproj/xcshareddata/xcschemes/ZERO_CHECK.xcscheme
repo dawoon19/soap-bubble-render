@@ -51,6 +51,12 @@
             ReferencedContainer = "container:xcode/Assignment3.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "-t 8 -s 64 -l 4 -m 2 ../dae/sky/CBspheres_refract.dae"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
