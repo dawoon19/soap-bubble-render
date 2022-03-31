@@ -132,6 +132,38 @@ Vector3D GlassBSDF::sample_f(const Vector3D wo, Vector3D* wi, double* pdf) {
 
   // compute Fresnel coefficient and use it as the probability of reflection
   // - Fundamentals of Computer Graphics page 305
+    if (!refract(wo, wi, ior)) {
+        reflect(wo, wi);
+        *pdf = 1;
+        return reflectance / abs_cos_theta(*wi);
+    }
+    else {
+        double R0 = pow((1.0 - ior) / (1.0 + ior), 2);
+        double R = R0 + (1 - R0) * pow((1.0 - abs_cos_theta(*wi)), 5);
+        if (coin_flip(R)) {
+            reflect(wo, wi);
+            *pdf = R;
+            return R * reflectance / abs_cos_theta(*wi);
+        }
+        else {
+            //refraction of wo to *wi
+            double n = 1.0 / ior;
+            int dir = -1;
+            if (wo.z < 0) {
+                n = ior;
+                dir = 1;
+            }
+            double cos2 = 1 - (n * n) * (1 - (wo.z * wo.z));
+            if (cos2 < 0) {
+
+            }
+            *wi = Vector3D(-n * wo.x, -n * wo.y, dir * sqrt(cos2));
+
+            *pdf = 1 - R;
+            return (1 - R) * transmittance / abs_cos_theta(*wi) / (n * n);
+        }
+    }
+
   return Vector3D();
 }
 
