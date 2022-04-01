@@ -46,22 +46,36 @@ double MicrofacetBSDF::D(const Vector3D h) {
   // TODO Project 3-2: Part 2
   // Compute Beckmann normal distribution function (NDF) here.
   // You will need the roughness alpha.
-  return 1.0;
+    Vector3D n = Vector3D(0,0,1);
+    double tan_h = cross(h, n).norm() / dot(h,n);
+    double cos_h = dot(h, n) / (h.norm() * n.norm());
+    
+    return exp(-pow(tan_h,2) / pow(alpha,2) ) / (PI * pow(alpha, 2) * pow(cos_h,4));
+//  return 1.0;
 }
 
 Vector3D MicrofacetBSDF::F(const Vector3D wi) {
   // TODO Project 3-2: Part 2
   // Compute Fresnel term for reflection on dielectric-conductor interface.
   // You will need both eta and etaK, both of which are Vector3D.
-
+    Vector3D eta = Vector3D(614, 549, 466);
+    Vector3D etaK = Vector3D(614, 549, 466);
+    
+    double cosine = dot(wi, Vector3D(0, 0, 1));
+    
+    Vector3D R_s = (eta * eta + etaK*etaK - 2 * eta * cosine + cosine * cosine) / ((eta * eta + etaK*etaK)* cosine*cosine + 2 *eta*cosine + 1);
+    
   return Vector3D();
 }
 
 Vector3D MicrofacetBSDF::f(const Vector3D wo, const Vector3D wi) {
   // TODO Project 3-2: Part 2
   // Implement microfacet model here.
-
-  return Vector3D();
+    Vector3D n = Vector3D(0,0,1);
+    Vector3D h = (wo + wi) / (wo + wi).norm();
+    
+    return (F(wi) * G(wo, wi) * D(h)) / (4 * dot(n,wo) * dot(n,wi));
+//  return Vector3D();
 }
 
 Vector3D MicrofacetBSDF::sample_f(const Vector3D wo, Vector3D* wi, double* pdf) {

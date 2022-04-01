@@ -53,8 +53,16 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-t 8 -s 64 -l 4 -m 2 ../dae/sky/CBspheres_refract.dae"
+            argument = "-t 8 -s 64 -l 4 -m 5 -r 480 360 ../dae/sky/CBspheres.dae"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-t 8 -s 64 -l 4 -m 12 -b 1.0 -d 0.5 -c camera.txt -r 480 360 ../dae/sky/CBdragon.dae"
             isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-t 8 -s 16 -l 4 -m 100 -b 1.0 -d 4.56 -r 480 360 ../dae/sky/CBdragon.dae"
+            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
    </LaunchAction>
