@@ -62,21 +62,21 @@ Vector3D MicrofacetBSDF::F(const Vector3D wi) {
 //    double n = 0.35678;
 //    double k = 8.9358;
 //    double k = 8.2614;
-    Vector3D cobalt_n = Vector3D(2.1849,2.05,1.7925);
-    Vector3D cobalt_k = Vector3D(4.0971,3.82,3.3775);
-    
-    Vector3D gold_n = Vector3D(0.21646,0.42833,1.3284);
-    Vector3D gold_k = Vector3D(3.2390,2.4599,1.8661);
-    
-//    Vector3D eta = n * Vector3D(614, 549, 466);
-//    Vector3D etaK = k * Vector3D(614, 549, 466);
-    Vector3D eta = gold_n;
-    Vector3D etaK = gold_k;
+//    Vector3D cobalt_n = Vector3D(2.1849,2.05,1.7925);
+//    Vector3D cobalt_k = Vector3D(4.0971,3.82,3.3775);
+//
+//    Vector3D gold_n = Vector3D(0.21646,0.42833,1.3284);
+//    Vector3D gold_k = Vector3D(3.2390,2.4599,1.8661);
+//
+////    Vector3D eta = n * Vector3D(614, 549, 466);
+////    Vector3D etaK = k * Vector3D(614, 549, 466);
+//    Vector3D eta = gold_n;
+//    Vector3D etaK = gold_k;
     
     double cosine = dot(wi, Vector3D(0, 0, 1));
     
-    Vector3D R_s = (eta*eta + etaK*etaK - 2 * eta * cosine + cosine * cosine) / (eta*eta + etaK*etaK + 2 * eta * cosine + cosine * cosine);
-    Vector3D R_p = ((eta * eta + etaK*etaK)* cosine*cosine - 2 *eta*cosine + 1) / ((eta * eta + etaK*etaK)* cosine*cosine + 2 *eta*cosine + 1);
+    Vector3D R_s = (eta*eta + k*k - 2 * eta * cosine + cosine * cosine) / (eta*eta + k*k + 2 * eta * cosine + cosine * cosine);
+    Vector3D R_p = ((eta * eta + k*k)* cosine*cosine - 2 *eta*cosine + 1) / ((eta * eta + k*k)* cosine*cosine + 2 *eta*cosine + 1);
     
     return (R_s + R_p) / 2;
 }
@@ -102,7 +102,7 @@ Vector3D MicrofacetBSDF::sample_f(const Vector3D wo, Vector3D* wi, double* pdf) 
   // Note: You should fill in the sampled direction *wi and the corresponding *pdf,
   //       and return the sampled BRDF value.
 
-//    alpha = 0.5;
+    alpha = 0.5;
     Vector2D r = sampler.get_sample();
     double r1 = r.x;
     double r2 = r.y;

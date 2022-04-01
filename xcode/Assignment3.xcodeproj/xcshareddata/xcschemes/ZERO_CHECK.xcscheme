@@ -58,6 +58,10 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-t 8 -s 128 -l 1 -m 5 -c camera.txt -r 200 200 ../dae/sky/CBdragon_microfacet_au.dae"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-t 8 -s 128 -l 1 -m 5 -r 480 360 ../dae/sky/CBbunny_microfacet_cu.dae"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
