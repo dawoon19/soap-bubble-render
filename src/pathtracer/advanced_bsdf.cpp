@@ -153,7 +153,7 @@ Vector3D GlassBSDF::sample_f(const Vector3D wo, Vector3D* wi, double* pdf) {
     }
     else {
         double R0 = pow((1.0 - ior) / (1.0 + ior), 2);
-        double R = R0 + (1 - R0) * pow((1.0 - abs_cos_theta(*wi)), 5);
+        double R = R0 + (1 - R0) * pow((1.0 - abs_cos_theta(wo)), 5);
         if (coin_flip(R)) {
             reflect(wo, wi);
             *pdf = R;

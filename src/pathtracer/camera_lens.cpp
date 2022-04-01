@@ -53,11 +53,14 @@ Ray Camera::generate_ray_for_thin_lens(double x, double y, double rndR, double r
     
     Vector3D blue_sgmt = pFocus - pLens;
     blue_sgmt.normalize();
+    
     Ray finalRay = Ray(pLens, blue_sgmt);
     finalRay.o = c2w * finalRay.o;
     finalRay.o += pos;
+    
     finalRay.d = c2w * finalRay.d;
     finalRay.d.normalize();
+    
     finalRay.min_t = nClip;
     finalRay.max_t = fClip;
     
