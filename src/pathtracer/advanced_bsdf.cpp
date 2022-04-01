@@ -102,7 +102,7 @@ Vector3D MicrofacetBSDF::sample_f(const Vector3D wo, Vector3D* wi, double* pdf) 
   // Note: You should fill in the sampled direction *wi and the corresponding *pdf,
   //       and return the sampled BRDF value.
 
-    alpha = 0.5;
+//    alpha = 0.5;
     Vector2D r = sampler.get_sample();
     double r1 = r.x;
     double r2 = r.y;
@@ -116,7 +116,7 @@ Vector3D MicrofacetBSDF::sample_f(const Vector3D wo, Vector3D* wi, double* pdf) 
     Vector3D h = Vector3D(sin(theta_h) * cos(phi_h), sin(theta_h) * sin(phi_h), cos(theta_h));
     h.normalize();
     
-    *wi = 2 * h * dot(wo, h) - wo;
+//    *wi = 2 * h * dot(wo, h) - wo;
 //    *wi = wo - 2 * dot(wo, h) * h;
     
     if (dot(*wi, Vector3D(0,0,1)) <= 0) {
@@ -127,7 +127,7 @@ Vector3D MicrofacetBSDF::sample_f(const Vector3D wo, Vector3D* wi, double* pdf) 
     double p_w_h = p_theta * p_phi / sin(theta_h);
     *pdf = p_w_h / (4 * dot(*wi,h));
     
-//  *wi = cosineHemisphereSampler.get_sample(pdf);
+  *wi = cosineHemisphereSampler.get_sample(pdf);
   return MicrofacetBSDF::f(wo, *wi);
 }
 
