@@ -57,7 +57,7 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "-t 8 -s 64 -l 4 -m 12 -b 1.0 -d 0.5 -c camera.txt -r 480 360 ../dae/sky/CBdragon.dae"
+            argument = "-t 8 -s 16 -l 4 -m 3 -b 0.03125 -d 1.2 -r 240 180 ../dae/sky/CBdragon.dae"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
