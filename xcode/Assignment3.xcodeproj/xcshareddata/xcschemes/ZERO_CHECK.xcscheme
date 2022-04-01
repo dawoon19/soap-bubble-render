@@ -57,8 +57,16 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "-t 8 -s 16 -l 4 -m 3 -b 0.03125 -d 1.2 -r 240 180 ../dae/sky/CBdragon.dae"
+            argument = "-t 8 -s 128 -l 1 -m 5 -c camera.txt -r 200 200 ../dae/sky/CBdragon_microfacet_au.dae"
             isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-t 8 -s 16 -l 4 -m 3 -b 0.03125 -d 1.2 -r 240 180 ../dae/sky/CBdragon.dae"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-t 8 -s 128 -l 1 -m 3 -c camera.txt -r 200 200 ../dae/sky/CBdragon_microfacet_au.dae"
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-t 8 -s 16 -l 4 -m 100 -b 1.0 -d 4.56 -r 480 360 ../dae/sky/CBdragon.dae"

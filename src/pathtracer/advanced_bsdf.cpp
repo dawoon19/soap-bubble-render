@@ -58,20 +58,38 @@ Vector3D MicrofacetBSDF::F(const Vector3D wi) {
   // TODO Project 3-2: Part 2
   // Compute Fresnel term for reflection on dielectric-conductor interface.
   // You will need both eta and etaK, both of which are Vector3D.
-    Vector3D eta = Vector3D(614, 549, 466);
-    Vector3D etaK = Vector3D(614, 549, 466);
+//    double n = 0.093390;
+//    double n = 0.35678;
+//    double k = 8.9358;
+//    double k = 8.2614;
+    Vector3D cobalt_n = Vector3D(2.1849,2.05,1.7925);
+    Vector3D cobalt_k = Vector3D(4.0971,3.82,3.3775);
+    
+    Vector3D gold_n = Vector3D(0.21646,0.42833,1.3284);
+    Vector3D gold_k = Vector3D(3.2390,2.4599,1.8661);
+    
+//    Vector3D eta = n * Vector3D(614, 549, 466);
+//    Vector3D etaK = k * Vector3D(614, 549, 466);
+    Vector3D eta = gold_n;
+    Vector3D etaK = gold_k;
     
     double cosine = dot(wi, Vector3D(0, 0, 1));
     
-    Vector3D R_s = (eta * eta + etaK*etaK - 2 * eta * cosine + cosine * cosine) / ((eta * eta + etaK*etaK)* cosine*cosine + 2 *eta*cosine + 1);
+    Vector3D R_s = (eta*eta + etaK*etaK - 2 * eta * cosine + cosine * cosine) / (eta*eta + etaK*etaK + 2 * eta * cosine + cosine * cosine);
+    Vector3D R_p = ((eta * eta + etaK*etaK)* cosine*cosine - 2 *eta*cosine + 1) / ((eta * eta + etaK*etaK)* cosine*cosine + 2 *eta*cosine + 1);
     
-  return Vector3D();
+    return (R_s + R_p) / 2;
 }
 
 Vector3D MicrofacetBSDF::f(const Vector3D wo, const Vector3D wi) {
   // TODO Project 3-2: Part 2
   // Implement microfacet model here.
     Vector3D n = Vector3D(0,0,1);
+    
+    if (dot(n, wi) <= 0 || dot(n,wo) <= 0) {
+        return 0;
+    }
+    
     Vector3D h = (wo + wi) / (wo + wi).norm();
     
     return (F(wi) * G(wo, wi) * D(h)) / (4 * dot(n,wo) * dot(n,wi));
@@ -84,7 +102,32 @@ Vector3D MicrofacetBSDF::sample_f(const Vector3D wo, Vector3D* wi, double* pdf) 
   // Note: You should fill in the sampled direction *wi and the corresponding *pdf,
   //       and return the sampled BRDF value.
 
-  *wi = cosineHemisphereSampler.get_sample(pdf);
+    alpha = 0.5;
+    Vector2D r = sampler.get_sample();
+    double r1 = r.x;
+    double r2 = r.y;
+    
+    double theta_h = atan(sqrt(-pow(alpha,2) * log(1 - r1) ));
+    double phi_h = 2 * PI * r2;
+    
+    double p_theta = (2 * sin(theta_h)) / (pow(alpha,2) * pow(cos(theta_h), 3)) * exp(-pow(tan(theta_h),2) / pow(alpha,2));
+    double p_phi = 1 / (2 * PI);
+    
+    Vector3D h = Vector3D(sin(theta_h) * cos(phi_h), sin(theta_h) * sin(phi_h), cos(theta_h));
+    h.normalize();
+    
+    *wi = 2 * h * dot(wo, h) - wo;
+//    *wi = wo - 2 * dot(wo, h) * h;
+    
+    if (dot(*wi, Vector3D(0,0,1)) <= 0) {
+        *pdf = 0;
+        return 0;
+    }
+    
+    double p_w_h = p_theta * p_phi / sin(theta_h);
+    *pdf = p_w_h / (4 * dot(*wi,h));
+    
+//  *wi = cosineHemisphereSampler.get_sample(pdf);
   return MicrofacetBSDF::f(wo, *wi);
 }
 
