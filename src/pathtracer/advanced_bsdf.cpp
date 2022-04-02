@@ -102,7 +102,7 @@ Vector3D MicrofacetBSDF::sample_f(const Vector3D wo, Vector3D* wi, double* pdf) 
   // Note: You should fill in the sampled direction *wi and the corresponding *pdf,
   //       and return the sampled BRDF value.
 
-    alpha = 0.5;
+//    alpha = 0.5;
     Vector2D r = sampler.get_sample();
     double r1 = r.x;
     double r2 = r.y;
