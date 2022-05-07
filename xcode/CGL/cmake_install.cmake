@@ -1,8 +1,8 @@
-# Install script for directory: /Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/CGL
+# Install script for directory: /Users/dwon729/Desktop/Spring2022/CS 184/FinalProject/thin_film_render/CGL
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/CGL")
+  set(CMAKE_INSTALL_PREFIX "/Users/dwon729/Desktop/Spring2022/CS 184/FinalProject/thin_film_render/CGL")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -37,12 +37,12 @@ if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/objdump")
 endif()
 
-set(CMAKE_BINARY_DIR "/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode")
+set(CMAKE_BINARY_DIR "/Users/dwon729/Desktop/Spring2022/CS 184/FinalProject/thin_film_render/xcode")
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CGL/deps/glew/cmake_install.cmake")
-  include("/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CGL/deps/glfw/cmake_install.cmake")
+  include("/Users/dwon729/Desktop/Spring2022/CS 184/FinalProject/thin_film_render/xcode/CGL/deps/glew/cmake_install.cmake")
+  include("/Users/dwon729/Desktop/Spring2022/CS 184/FinalProject/thin_film_render/xcode/CGL/deps/glfw/cmake_install.cmake")
 
 endif()
 

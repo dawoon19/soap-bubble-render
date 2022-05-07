@@ -1,9 +1,9 @@
 
-if (NOT EXISTS "/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CGL/deps/glfw/install_manifest.txt")
-    message(FATAL_ERROR "Cannot find install manifest: \"/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CGL/deps/glfw/install_manifest.txt\"")
+if (NOT EXISTS "/Users/dwon729/Desktop/Spring2022/CS 184/FinalProject/thin_film_render/xcode/CGL/deps/glfw/install_manifest.txt")
+    message(FATAL_ERROR "Cannot find install manifest: \"/Users/dwon729/Desktop/Spring2022/CS 184/FinalProject/thin_film_render/xcode/CGL/deps/glfw/install_manifest.txt\"")
 endif()
 
-file(READ "/Users/dwon729/Desktop/Spring2022/CS 184/proj3-2/xcode/CGL/deps/glfw/install_manifest.txt" files)
+file(READ "/Users/dwon729/Desktop/Spring2022/CS 184/FinalProject/thin_film_render/xcode/CGL/deps/glfw/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 
 foreach (file ${files})
